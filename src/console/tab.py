@@ -1,22 +1,23 @@
 tabs_in_mod = {
-    "Work":[
-        "mod insersion ",
-        "mod search ",
-        "help ",
-        "show mod ",
-        "show vul ",
 
-    ],
-    "Insert" : [
-        "new vul ",
-        "set dork",
-        "set vul ",
-        "insert"
-    ],
-    "Search" : [
-        "run ",
-        "set vul ",
-        "set dork"
+    "all_cmd" : [
+        'add ',
+        'show ',
+        'help ',
+        'exit ',
+        'mod ',
+        'set ',
+        'insert ',
+        'search ',
+        'vul ',
+        'run ',
+        'dork ',
+        'del ',
+        'back ',
+        'sqli ',
+        'xxe ',
+        'xss ',
+        'ssrf ',
+        'lfi '
     ]
-
 }
