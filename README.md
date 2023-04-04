@@ -1,4 +1,22 @@
-## Cyber Engien
+## DorkEngien
+
+**Description**: DorkEngien is an open-source tool that automates the use of Google dorks to enhance the effectiveness of Red Team and Bug Bounty missions. Dorks are advanced search queries used to target specific information on the internet. However, creating these queries can be tedious and time-consuming. That's where DorkFinder comes in: it automates the process of using Google dorks to optimize enumeration during security missions.
+
+### Features:
+
+    1- Simple and user-friendly interface
+    2- Preconfigured dork library
+    3- Ability to add and customize dorks
+    4- Filtering options to refine results
+    5- Data export features
+
+DorkEngien is designed to be used by security professionals, pentesters, and bug hunters. With DorkFinder, you can increase your productivity and optimize the effectiveness of your missions by automating the process of creating and using Google dorks.
+
+Technologies used: Python, Google Search API
+
+Feel free to contribute and improve the tool!
+
+
 
 ### Dorking by Vuln
 
