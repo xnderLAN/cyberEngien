@@ -5,7 +5,7 @@ tabs_in_mod = {
         'show ',
         'help ',
         'exit ',
-        'mod ',
+        'mode ',
         'set ',
         'insert ',
         'search ',
@@ -18,6 +18,7 @@ tabs_in_mod = {
         'xxe ',
         'xss ',
         'ssrf ',
-        'lfi '
+        'lfi ',
+        'devulg '
     ]
 }

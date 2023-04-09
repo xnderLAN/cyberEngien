@@ -8,10 +8,12 @@ cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='dork'")
 table_exists = cur.fetchone()
 
 if not table_exists:
-    cur.execute("CREATE TABLE dork (id INTEGER PRIMARY KEY, url TEXT UNIQUE, type TEXT)")
+    cur.execute("CREATE TABLE out (id INTEGER PRIMARY KEY, url TEXT UNIQUE, type TEXT)")
 
     conn.commit()
-    print("La table 'dork' a été créée avec succès.")
+
+    cur.execute("CREATE TABLE dork (id INTEGER PRIMARY KEY, dork TEXT UNIQUE, type TEXT)")
+    
 else:
     pass
 

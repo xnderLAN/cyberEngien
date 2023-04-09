@@ -28,7 +28,7 @@ Feel free to contribute and improve the tool!
 
 ### Use case 
 
-Automate vuln Search on WWW
+    Automate vuln Search on WWW
 
 
 # Google dork cheatsheet

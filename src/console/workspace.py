@@ -3,7 +3,8 @@ from colorama import Style, Fore, init
 from .tab import tabs_in_mod
 import sys
 from time import sleep
-
+from .help import help
+from db.action import insert
 
 class Interact():
     #intitle:"index of /" intext:".env"
@@ -41,7 +42,7 @@ class Interact():
             self.input = input(f'[{Style.BRIGHT}{Fore.RED}{self.current_mod.capitalize()}{Fore.RESET}{Style.RESET_ALL}] Doks {Style.BRIGHT}{Fore.RED}>>{Fore.RESET}{Style.RESET_ALL} ')
             
 
-            if self.input.split(" ")[0] == "mod":
+            if self.input.split(" ")[0] == "mode":
                 if self.input.split(" ")[1].capitalize() in self.mod:
                     self.current_mod = self.input.split(" ")[1].strip(" ").capitalize()
 
@@ -50,16 +51,13 @@ class Interact():
                 
             
             elif self.input.split(" ")[0] == "show":
-                print("im in showw")
-                if self.current_mod ==  self.mod[0]:
-                    print(
-                        '''
-                        test
-                        '''
-                    )
-                elif self.current_mod ==  self.mod[1]:
+
+                if self.current_mod.capitalize() ==  self.mod[0]:
+                    print(help)
+
+                elif self.current_mod.capitalize() ==  self.mod[1]:
                     pass
-                elif self.current_mod ==  self.mod[2]:
+                elif self.current_mod.capitalize() ==  self.mod[2]:
                     pass
 
             elif self.input.strip(" ") == "exit":
