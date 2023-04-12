@@ -20,5 +20,17 @@ tabs_in_mod = {
         'ssrf ',
         'lfi ',
         'devulg '
-    ]
+    ],
+    "vul" : [
+        'sqli ',
+        'xxe ',
+        'xss ',
+        'ssrf ',
+        'lfi ',
+        'devulg '
+    ],
+    "show":{
+        'insert':{"field_names":['Variable', "required", "Discription"]},
+        'search':{}
+    }
 }
