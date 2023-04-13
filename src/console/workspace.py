@@ -14,7 +14,7 @@ class Interact():
 
     def __init__(self) -> None:
         self.mod = ['Work', 'Search', 'Insert']
-        self.current_mod = 'work'
+        self.current_mod = self.mod[0]
         self.cmd_on_mod = []
         self.tab_in_mod = tabs_in_mod
         self.input = ""
@@ -47,9 +47,10 @@ class Interact():
             table.field_names = tabs_in_mod['show'][self.current_mod.lower()]["field_names"]
             for val in tabs_in_mod['show'][self.current_mod.lower()]["val"]:
                 name = val[0]
-                required = val[1]
+                value = val[1]
+                required = val[2]
                 discription = val[3]
-                table.add_row([name, required, discription])
+                table.add_row([name, value, required, discription])
             return table
         return table
         
@@ -73,25 +74,31 @@ class Interact():
             readline.set_completer_delims(' ')
             self.input = input(f'[{Style.BRIGHT}{Fore.RED}{self.current_mod.capitalize()}{Fore.RESET}{Style.RESET_ALL}] Doks {Style.BRIGHT}{Fore.RED}>>{Fore.RESET}{Style.RESET_ALL} ')
 
-            #les commande de ce mode sont (help, mode, )
-            if self.current_mod == "Work":
+            #les commande de ce mode sont (help, mode, ) Work
+            if self.current_mod == self.mod[0]:
                 #changer de mode
                 if self.input.split(" ")[0] == "mode":
                     if self.input.split(" ")[1].capitalize() in self.mod:
                         self.current_mod = self.input.split(" ")[1].strip(" ").capitalize()
            
-            #les commande de ce mode sont (set, run, show)
-            elif self.current_mod == "Search" :
+            #les commande de ce mode sont (set, run, show) Search 
+            elif self.current_mod == self.mod[1] :
                 match self.input.split(" ")[0].lower():
                     case "set":
-                        pass
+                        match self.input.split(" ")[1].lower():
+                            case 'vul':
+                                tabs_in_mod["show"]['search']['val'][0][1] = self.input.split(" ")[2]
+                            case 'dork':
+                                tabs_in_mod["show"]['search']['val'][1][1] = self.input.strip("set dork ")
+                            case 'target':
+                                tabs_in_mod["show"]['search']['val'][2][1] = self.input.split(" ")[2]
                     case "run":
                         pass
                     case "show":
                         print(self.show())
 
-            #les commande de ce mode sont (set, run, show, )
-            elif self.current_mod == "Insert":
+            #les commande de ce mode sont (set, run, show, ) Insert
+            elif self.current_mod == self.mod[2]:
                 match self.input:
                     case "set":
                         pass

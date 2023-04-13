@@ -32,11 +32,11 @@ tabs_in_mod = {
     ],
     "show":{
         'search':{
-            "field_names":['Variable', "required", "Discription"],
+            "field_names":['Variable','Value', "Required", "Discription"],
             "val":[
-                ['vul','false','Specify a vulnerability to obtain precise results, for example: LFI, SQLI...'],
-                ['dork','false','Specify the dork to use in the search.'],
-                ['target','false','Specify the target in order to focus the search.']
+                ['vul','','false','Specify a vulnerability for example: LFI, SQLI...'],
+                ['dork','','false','Specify the dork to use in the search.'],
+                ['target','','false','Specify the target in order to focus the search.']
                 ]
             },
 
