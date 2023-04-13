@@ -39,12 +39,19 @@ class Interact():
         pass
     def run(self):
         pass
+    
     def show(self, option=None):
         table = PrettyTable()
         table.field_names = []
-        if option == "vul":
-            return
-        return
+        if self.current_mod.lower() == "search":
+            table.field_names = tabs_in_mod['show'][self.current_mod.lower()]["field_names"]
+            for val in tabs_in_mod['show'][self.current_mod.lower()]["val"]:
+                name = val[0]
+                required = val[1]
+                discription = val[3]
+                table.add_row([name, required, discription])
+            return table
+        return table
         
     def save(self):
         pass
@@ -81,7 +88,7 @@ class Interact():
                     case "run":
                         pass
                     case "show":
-                        pass
+                        print(self.show())
 
             #les commande de ce mode sont (set, run, show, )
             elif self.current_mod == "Insert":

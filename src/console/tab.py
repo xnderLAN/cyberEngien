@@ -19,7 +19,8 @@ tabs_in_mod = {
         'xss ',
         'ssrf ',
         'lfi ',
-        'devulg '
+        'devulg ',
+        'target '
     ],
     "vul" : [
         'sqli ',
@@ -30,7 +31,15 @@ tabs_in_mod = {
         'devulg '
     ],
     "show":{
-        'insert':{"field_names":['Variable', "required", "Discription"]},
-        'search':{}
+        'search':{
+            "field_names":['Variable', "required", "Discription"],
+            "val":[
+                ['vul','false','Specify a vulnerability to obtain precise results, for example: LFI, SQLI...'],
+                ['dork','false','Specify the dork to use in the search.'],
+                ['target','false','Specify the target in order to focus the search.']
+                ]
+            },
+
+        'insert':{}
     }
 }
