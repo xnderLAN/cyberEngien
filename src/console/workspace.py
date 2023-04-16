@@ -8,6 +8,7 @@ from db.action import insert
 import sys, os
 from console.banner import print_banner
 from prettytable import PrettyTable
+from engien.dork import Dork
 
 class Interact():
     #intitle:"index of /" intext:".env"
@@ -18,6 +19,10 @@ class Interact():
         self.cmd_on_mod = []
         self.tab_in_mod = tabs_in_mod
         self.input = ""
+        self.url_output = []
+        self.console_running = f'{Style.BRIGHT}{Fore.BLUE}[-]{Fore.RESET}{Style.RESET_ALL}]'
+        self.console_ok  = f'{Style.BRIGHT}{Fore.GREEN}[+]{Fore.RESET}{Style.RESET_ALL}]'
+        self.console_error = f'{Style.BRIGHT}{Fore.RED}[!]{Fore.RESET}{Style.RESET_ALL}]'
 
     def _tab(self, text, state):
         options = self.cmd_on_mod
@@ -92,10 +97,31 @@ class Interact():
                                 tabs_in_mod["show"]['search']['val'][1][1] = self.input.strip("set dork ")
                             case 'target':
                                 tabs_in_mod["show"]['search']['val'][2][1] = self.input.split(" ")[2]
+                            case "scop":
+                                tabs_in_mod["show"]['search']['val'][3][1] = int(self.input.split(" ")[2])
+
                     case "run":
+                        self.url_output = Dork(
+                                            result=tabs_in_mod["show"]['search']['val'][3][1],
+                                            dork=tabs_in_mod["show"]['search']['val'][1][1],
+                                            target=tabs_in_mod["show"]['search']['val'][2][1],
+                                            dtype=tabs_in_mod["show"]['search']['val'][0][1]
+                                            ).google()
                         pass
                     case "show":
                         print(self.show())
+                    
+                    case "flush":
+                        if self.url_output:  
+                            self.url_output = []
+                            print (self.console_running+" Flush Output")
+                        else:
+                            print (self.console_error+" Output alredy empty !")
+                    case "save":
+                        if self.url_output:
+                            pass
+                        else:
+                            print(self.console_error+" Empty Output !")
 
             #les commande de ce mode sont (set, run, show, ) Insert
             elif self.current_mod == self.mod[2]:

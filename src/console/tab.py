@@ -20,7 +20,9 @@ tabs_in_mod = {
         'ssrf ',
         'lfi ',
         'devulg ',
-        'target '
+        'target ',
+        'flush ',
+        'scop '
     ],
     "vul" : [
         'sqli ',
@@ -34,9 +36,10 @@ tabs_in_mod = {
         'search':{
             "field_names":['Variable','Value', "Required", "Discription"],
             "val":[
-                ['vul','','false','Specify a vulnerability for example: LFI, SQLI...'],
-                ['dork','','false','Specify the dork to use in the search.'],
-                ['target','','false','Specify the target in order to focus the search.']
+                ['vul',None,'false','Specify a vulnerability for example: LFI, SQLI...'],
+                ['dork',None,'false','Specify the dork to use in the search.'],
+                ['target',None,'false','Specify the target in order to focus the search.'],
+                ['scop',10,'false','Specify the number of results you want per search']
                 ]
             },
 
