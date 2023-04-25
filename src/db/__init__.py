@@ -9,10 +9,10 @@ table_exists = cur.fetchone()
 
 if not table_exists:
     cur.execute("CREATE TABLE out (id INTEGER PRIMARY KEY, url TEXT UNIQUE, type TEXT)")
-
+    cur.execute("CREATE TABLE dork (id INTEGER PRIMARY KEY, dork TEXT UNIQUE, type TEXT)")
+    cur.execute("CREATE TABLE ghdb (id INTEGER PRIMARY KEY, dork TEXT UNIQUE)")
     conn.commit()
 
-    cur.execute("CREATE TABLE dork (id INTEGER PRIMARY KEY, dork TEXT UNIQUE, type TEXT)")
     
 else:
     pass

@@ -4,7 +4,6 @@ from .tab import tabs_in_mod
 import sys
 from time import sleep
 from .help import help
-from db.action import insert
 import sys, os
 from console.banner import print_banner
 from prettytable import PrettyTable

@@ -1,9 +1,13 @@
 import sqlite3
 
 
-def insert():
+def ghdb_insert(dork):
     conn = sqlite3.connect("./data/data.db")
     cur = conn.cursor()
 
+    sql_query = "INSERT INTO ghdb (dork) VALUES (?)"
+    values = (str(dork))
+    cur.execute(sql_query, values)
 
-    pass
+    conn.commit()
+    conn.close()
