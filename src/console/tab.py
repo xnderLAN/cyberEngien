@@ -5,7 +5,7 @@ tabs_in_mod = {
         'show ',
         'help ',
         'exit ',
-        'mode ',
+        'use ',
         'set ',
         'insert ',
         'search ',
@@ -22,7 +22,8 @@ tabs_in_mod = {
         'devulg ',
         'target ',
         'flush ',
-        'scop '
+        'scop ',
+        'option '
     ],
     "vul" : [
         'sqli ',
@@ -32,7 +33,7 @@ tabs_in_mod = {
         'lfi ',
         'devulg '
     ],
-    "show":{
+    "option":{
         'search':{
             "field_names":['Variable','Value', "Required", "Discription"],
             "val":[

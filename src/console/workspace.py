@@ -44,12 +44,12 @@ class Interact():
     def run(self):
         pass
     
-    def show(self, option=None):
+    def option(self, option=None):
         table = PrettyTable()
         table.field_names = []
         if self.current_mod.lower() == "search":
-            table.field_names = tabs_in_mod['show'][self.current_mod.lower()]["field_names"]
-            for val in tabs_in_mod['show'][self.current_mod.lower()]["val"]:
+            table.field_names = tabs_in_mod['option'][self.current_mod.lower()]["field_names"]
+            for val in tabs_in_mod['option'][self.current_mod.lower()]["val"]:
                 name = val[0]
                 value = val[1]
                 required = val[2]
@@ -59,6 +59,11 @@ class Interact():
         return table
         
     def save(self):
+        pass
+
+    def show(self, option=None):
+        
+        
         pass
 
 
@@ -81,7 +86,7 @@ class Interact():
             #les commande de ce mode sont (help, mode, ) Work
             if self.current_mod == self.mod[0]:
                 #changer de mode
-                if self.input.split(" ")[0] == "mode":
+                if self.input.split(" ")[0] == "use":
                     if self.input.split(" ")[1].capitalize() in self.mod:
                         self.current_mod = self.input.split(" ")[1].strip(" ").capitalize()
            
@@ -91,24 +96,24 @@ class Interact():
                     case "set":
                         match self.input.split(" ")[1].lower():
                             case 'vul':
-                                tabs_in_mod["show"]['search']['val'][0][1] = self.input.split(" ")[2]
+                                tabs_in_mod["option"]['search']['val'][0][1] = self.input.split(" ")[2]
                             case 'dork':
-                                tabs_in_mod["show"]['search']['val'][1][1] = self.input.strip("set dork ")
+                                tabs_in_mod["option"]['search']['val'][1][1] = self.input.strip("set dork ")
                             case 'target':
-                                tabs_in_mod["show"]['search']['val'][2][1] = self.input.split(" ")[2]
+                                tabs_in_mod["option"]['search']['val'][2][1] = self.input.split(" ")[2]
                             case "scop":
-                                tabs_in_mod["show"]['search']['val'][3][1] = int(self.input.split(" ")[2])
+                                tabs_in_mod["option"]['search']['val'][3][1] = int(self.input.split(" ")[2])
 
                     case "run":
                         self.url_output = Dork(
-                                            result=tabs_in_mod["show"]['search']['val'][3][1],
-                                            dork=tabs_in_mod["show"]['search']['val'][1][1],
-                                            target=tabs_in_mod["show"]['search']['val'][2][1],
-                                            dtype=tabs_in_mod["show"]['search']['val'][0][1]
+                                            result=tabs_in_mod["option"]['search']['val'][3][1],
+                                            dork=tabs_in_mod["option"]['search']['val'][1][1],
+                                            target=tabs_in_mod["option"]['search']['val'][2][1],
+                                            dtype=tabs_in_mod["option"]['search']['val'][0][1]
                                             ).google()
                         pass
-                    case "show":
-                        print(self.show())
+                    case "option":
+                        print(self.option())
                     
                     case "flush":
                         if self.url_output:  
@@ -132,7 +137,9 @@ class Interact():
 
             if self.input.split(" ")[0] == "back":
                     self.current_mod = self.mod[0]
-            
+
+            if self.input.split(" ")[0] == "show":
+                pass
             #quiter la console   
             elif self.input.strip(" ") == "exit":
                 print("Goodbye !")
